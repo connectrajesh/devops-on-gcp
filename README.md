@@ -2,4 +2,4 @@
 
 Sample demonstration of devops on gcp
 
-This text was added after branch protection enforced at github
+Wrriten in python and hosted in GKE
