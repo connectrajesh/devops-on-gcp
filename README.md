@@ -1,3 +1,3 @@
 # devops-on-gcp
 
-GCP demonstration of hosting an application on GKE.
+GCP demonstration of hosting an application on GKE. 
