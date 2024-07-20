@@ -4,3 +4,5 @@ steps:
 images:
   - 'gcr.io/$PROJECT_ID/gcpdevops'
 serviceAccount: 'my-service-account-1@sacred-footing-421417.iam.gserviceaccount.com'
+options:
+  logging: 'NONE'
