@@ -7,11 +7,16 @@ steps:
   args: ["push", "gcr.io/$PROJECT_ID/gcpdevops"]
 # deploy the container to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
+  entrypoint: 'sh'
   args:
-  - run
-  - --filename=gke.yaml
-  - --image=gcr.io/$PROJECT_ID/gcpdevops
-  - --namespace=gcp-devops-prod
+  - '-c'
+  - |
+    echo "Configuring kubectl"
+    gcloud container clusters get-credentials dev-platform --zone us-central1-c --project $PROJECT_ID
+    echo "Creating namespace if not exists"
+    kubectl get namespace gcp-devops-prod || kubectl create namespace gcp-devops-prod
+    echo "Applying Kubernetes configurations"
+    kubectl apply -f gke.yaml
   env:
   - CLOUDSDK_COMPUTE_ZONE=us-central1-c
   - CLOUDSDK_CONTAINER_CLUSTER=dev-platform
