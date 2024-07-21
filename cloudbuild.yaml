@@ -12,8 +12,9 @@ steps:
   - --filename=gke.yaml
   - --image=gcr.io/$PROJECT_ID/gcpdevops
   - --namespace=gcp-devops-prod
-  - --cluster=dev-platform
-  - --location=us-central1-c
+  env:
+  - CLOUDSDK_COMPUTE_ZONE=us-central1-c
+  - CLOUDSDK_CONTAINER_CLUSTER=dev-platform
 serviceAccount: 'my-service-account-1@sacred-footing-421417.iam.gserviceaccount.com'
 options:
   logging: 'CLOUD_LOGGING_ONLY'
