@@ -10,7 +10,7 @@ steps:
   args:
   - run
   - --filename=gke.yaml
-  - --image=gcr.io/$PROJECT_ID/gcpdevops
+  - --image=gcr.io/sacred-footing-421417/gcpdevops
   - --namespace=gcp-devops-prod
   env:
   - CLOUDSDK_COMPUTE_ZONE=us-central1-c
